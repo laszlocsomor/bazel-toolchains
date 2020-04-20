@@ -976,6 +976,11 @@ def rbe_autoconfig(
           as source for your toolchain configs.
           For details of the expected structure of toolchain_config_suite_spec dict please see
           //rules/rbe_repo:toolchain_config_suite_spec.bzl
+      pull: Optional. If False, the container is expected to be cached locally
+          and will never be pulled. Setting this value to False can be useful
+          while developing a custom container that is built locally but not yet
+          pushed to a registry.  Note that such containers do not have a digest
+          computed, so use 'tag=latest' instead of trying to specify a 'digest'.
       registry: Optional. The registry from which to pull the base image.
           Should only be set if a custom container is required.
           Must be set together with digest and repository.
